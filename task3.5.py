@@ -24,3 +24,10 @@ conn.executemany("INSERT INTO books VALUES (?, ?, ?, ?, ?, ?, ?)", rows)
 conn.commit()
 
 print(conn.execute("SELECT COUNT(*) FROM books").fetchone())
+
+
+with open("summary.sql", encoding="utf-8") as f:
+    conn.executescript(f.read())
+
+for row in conn.execute("SELECT * FROM summary LIMIT 5"):
+    print(row)
