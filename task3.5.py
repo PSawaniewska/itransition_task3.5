@@ -31,3 +31,5 @@ with open("summary.sql", encoding="utf-8") as f:
 
 for row in conn.execute("SELECT * FROM summary LIMIT 5"):
     print(row)
+
+conn.close()
